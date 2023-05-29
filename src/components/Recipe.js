@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import IngredientList from './IngredientList';
+import { RecipeContext } from './App';
 
 export default function Recipe(props) {
+    const {handleRecipeDelete} = useContext(RecipeContext);
     const {
         id,
         name, 
@@ -18,7 +20,7 @@ export default function Recipe(props) {
                 <button className='btn btn--primary mr-1'>Edit</button>
                 <button 
                     className='btn btn--danger'
-                    onClick={()=>props.handleRecipeDelete(id)}
+                    onClick={()=>handleRecipeDelete(id)}
                 >
                     Delete
                 </button>
